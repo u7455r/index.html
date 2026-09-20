@@ -4,1861 +4,1137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e50914">
 
-<title>Bangla Voice AI</title>
+<title>Bangla Voice AI — Free Voice Studio</title>
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 :root{
---bg:#050505;
---card:#0d0d0d;
---card2:#121212;
---border:#242424;
---text:#fff;
---muted:#858585;
---green:#a8ff3d;
---green2:#c5ff83;
+  --red:#e50914;
+  --red2:#ff3340;
+  --dark:#070707;
+  --card:#111111;
+  --card2:#171717;
+  --text:#ffffff;
+  --muted:#999999;
+  --border:#292929;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Inter,Arial,sans-serif;
-background:
-radial-gradient(circle at 50% -10%,#19220d 0,#050505 35%),
-#050505;
-color:var(--text);
-min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(229,9,20,.20),transparent 30%),
+    radial-gradient(circle at 85% 30%,rgba(255,30,45,.12),transparent 30%),
+    #050505;
+  color:white;
+  min-height:100vh;
 }
 
-button,input,textarea,select{
-font-family:inherit;
-}
+/* NAVBAR */
 
-button{
-cursor:pointer;
-}
-
-.hidden{
-display:none!important;
-}
-
-/* ================= NAVBAR ================= */
-
-.navbar{
-height:72px;
-padding:0 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid var(--border);
-background:rgba(5,5,5,.82);
-backdrop-filter:blur(20px);
-position:sticky;
-top:0;
-z-index:100;
+nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  border-bottom:1px solid #222;
+  background:rgba(5,5,5,.85);
+  backdrop-filter:blur(18px);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:9px;
-font-weight:800;
-font-size:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:21px;
+  font-weight:800;
 }
 
-.logo-mark{
-width:29px;
-height:29px;
-display:grid;
-place-items:center;
-border-radius:9px;
-background:var(--green);
-color:#000;
-font-weight:900;
+.logoIcon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--red),#7d0008);
+  box-shadow:0 0 25px rgba(229,9,20,.4);
 }
 
-.nav-links{
-display:flex;
-gap:28px;
+.navLinks{
+  display:flex;
+  gap:28px;
 }
 
-.nav-links a{
-text-decoration:none;
-color:#8d8d8d;
-font-size:14px;
+.navLinks a{
+  color:#aaa;
+  text-decoration:none;
+  font-size:14px;
 }
 
-.nav-links a:hover{
-color:white;
+.navLinks a:hover{
+  color:white;
 }
 
-.nav-actions{
-display:flex;
-gap:9px;
-align-items:center;
+.freeBtn{
+  background:var(--red);
+  border:none;
+  color:white;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.btn{
-border:0;
-border-radius:9px;
-padding:11px 17px;
-font-weight:700;
-}
-
-.btn-dark{
-background:#151515;
-color:#fff;
-border:1px solid #292929;
-}
-
-.btn-green{
-background:var(--green);
-color:#000;
-}
-
-.btn-green:hover{
-background:var(--green2);
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-text-align:center;
-padding:120px 20px 100px;
+  max-width:1200px;
+  margin:auto;
+  padding:100px 25px 80px;
+  text-align:center;
 }
 
 .badge{
-display:inline-flex;
-align-items:center;
-gap:7px;
-padding:8px 14px;
-border:1px solid #303030;
-border-radius:999px;
-color:#baff76;
-font-size:12px;
-background:#0c1008;
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid #4a1518;
+  background:#160607;
+  border-radius:50px;
+  color:#ff6970;
+  font-size:13px;
+  margin-bottom:25px;
 }
 
 .hero h1{
-font-size:clamp(52px,8vw,96px);
-line-height:.94;
-letter-spacing:-5px;
-margin-top:25px;
+  font-size:clamp(45px,8vw,88px);
+  line-height:1;
+  letter-spacing:-4px;
+  margin-bottom:25px;
 }
 
-.hero h1 span{
-color:var(--green);
+.gradientText{
+  background:linear-gradient(90deg,#fff,#ff2733,#e50914);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .hero p{
-max-width:650px;
-margin:28px auto;
-color:#929292;
-font-size:17px;
-line-height:1.7;
+  max-width:700px;
+  margin:auto;
+  color:#999;
+  font-size:18px;
+  line-height:1.7;
 }
 
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:12px;
+.heroButtons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-/* ================= CONTAINER ================= */
-
-.container{
-max-width:1120px;
-margin:auto;
-padding:70px 20px;
+.primary{
+  background:var(--red);
+  color:white;
+  border:none;
+  padding:16px 25px;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 10px 40px rgba(229,9,20,.25);
 }
 
-.section-label{
-font-size:11px;
-letter-spacing:1.7px;
-color:#777;
+.secondary{
+  background:#151515;
+  color:white;
+  border:1px solid #333;
+  padding:16px 25px;
+  border-radius:12px;
+  cursor:pointer;
 }
 
-.section-title{
-font-size:35px;
-margin-top:8px;
+/* STUDIO */
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 25px;
 }
 
-/* ================= DASHBOARD ================= */
-
-.dashboard{
-padding-top:35px;
+.sectionTitle{
+  text-align:center;
+  margin-bottom:45px;
 }
 
-.profile-card{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-padding:25px;
-border:1px solid var(--border);
-border-radius:18px;
-background:
-linear-gradient(135deg,#101010,#10170b);
+.sectionTitle h2{
+  font-size:40px;
+  margin-bottom:10px;
 }
 
-.profile-left{
-display:flex;
-align-items:center;
-gap:15px;
+.sectionTitle p{
+  color:#888;
 }
-
-.profile-avatar{
-width:58px;
-height:58px;
-border-radius:50%;
-background:var(--green);
-color:#000;
-display:grid;
-place-items:center;
-font-weight:900;
-font-size:20px;
-overflow:hidden;
-}
-
-.profile-avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.profile-info h2{
-font-size:22px;
-}
-
-.profile-info p{
-margin-top:5px;
-color:#777;
-font-size:13px;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-margin-top:18px;
-}
-
-.stat{
-padding:21px;
-border:1px solid var(--border);
-background:#0c0c0c;
-border-radius:14px;
-}
-
-.stat-label{
-color:#777;
-font-size:12px;
-}
-
-.stat-value{
-font-size:28px;
-font-weight:800;
-margin-top:9px;
-color:var(--green);
-}
-
-/* ================= STUDIO ================= */
 
 .studio{
-margin-top:20px;
-border:1px solid var(--border);
-border-radius:18px;
-overflow:hidden;
-background:#0c0c0c;
+  background:linear-gradient(145deg,#111,#080808);
+  border:1px solid #282828;
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 30px 100px rgba(0,0,0,.45);
 }
 
-.studio-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:22px 25px;
-border-bottom:1px solid var(--border);
+.textArea{
+  width:100%;
+  min-height:220px;
+  background:#080808;
+  color:white;
+  border:1px solid #292929;
+  border-radius:18px;
+  padding:20px;
+  font-size:17px;
+  outline:none;
+  resize:vertical;
 }
 
-.studio-head h3{
-font-size:20px;
-}
-
-.credit-pill{
-padding:8px 12px;
-border-radius:8px;
-background:#171717;
-color:#aaa;
-font-size:12px;
-}
-
-.studio-body{
-display:grid;
-grid-template-columns:1.6fr 1fr;
-}
-
-.text-area{
-padding:25px;
-border-right:1px solid var(--border);
-}
-
-.text-area textarea{
-width:100%;
-height:330px;
-resize:none;
-background:transparent;
-border:0;
-outline:0;
-color:#fff;
-font-size:18px;
-line-height:1.7;
-}
-
-.char-count{
-padding-top:14px;
-border-top:1px solid var(--border);
-color:#666;
-font-size:12px;
+.textArea:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(229,9,20,.1);
 }
 
 .controls{
-padding:25px;
-}
-
-.control-title{
-font-size:11px;
-letter-spacing:1.4px;
-color:#777;
-}
-
-.voice-select{
-display:flex;
-align-items:center;
-gap:12px;
-padding:13px;
-margin-top:13px;
-border:1px solid #292929;
-border-radius:11px;
-background:#151515;
-}
-
-.voice-avatar{
-width:42px;
-height:42px;
-display:grid;
-place-items:center;
-border-radius:50%;
-background:var(--green);
-color:#000;
-font-weight:900;
-}
-
-.voice-name{
-flex:1;
-}
-
-.voice-name small{
-display:block;
-color:#777;
-margin-top:4px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
 }
 
 .control{
-margin-top:26px;
+  background:#101010;
+  border:1px solid #252525;
+  border-radius:15px;
+  padding:16px;
 }
 
-.control-head{
-display:flex;
-justify-content:space-between;
-color:#aaa;
-font-size:13px;
+.control label{
+  display:block;
+  color:#888;
+  font-size:12px;
+  margin-bottom:9px;
 }
 
+select,
 input[type=range]{
-width:100%;
-margin-top:12px;
-accent-color:var(--green);
+  width:100%;
 }
 
 select{
-width:100%;
-margin-top:12px;
-padding:12px;
-background:#151515;
-border:1px solid #292929;
-border-radius:9px;
-color:#fff;
+  background:#181818;
+  color:white;
+  border:1px solid #333;
+  padding:12px;
+  border-radius:10px;
+}
+
+input[type=range]{
+  accent-color:var(--red);
 }
 
 .generate{
-width:100%;
-margin-top:25px;
-padding:14px;
-border:0;
-border-radius:9px;
-background:var(--green);
-font-weight:800;
+  width:100%;
+  margin-top:20px;
+  padding:18px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,#b9000b,#ff1723);
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 15px 35px rgba(229,9,20,.2);
 }
+
+.generate:hover{
+  transform:translateY(-1px);
+}
+
+/* PLAYER */
 
 .player{
-display:flex;
-align-items:center;
-gap:15px;
-padding:18px 25px;
-border-top:1px solid var(--border);
+  margin-top:20px;
+  padding:20px;
+  border:1px solid #292929;
+  background:#0c0c0c;
+  border-radius:15px;
+  display:none;
 }
 
-.play{
-width:42px;
-height:42px;
-border-radius:50%;
-border:0;
-background:var(--green);
+.player audio{
+  width:100%;
 }
 
-.wave{
-flex:1;
-display:flex;
-gap:4px;
-align-items:center;
-}
-
-.wave span{
-width:3px;
-height:20px;
-border-radius:4px;
-background:var(--green);
-}
-
-.wave span:nth-child(2n){
-height:34px;
-}
-
-.status{
-font-size:12px;
-color:#777;
-}
-
-/* ================= FEATURES ================= */
+/* FEATURES */
 
 .features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .feature{
-padding:25px;
-border:1px solid var(--border);
-background:#0c0c0c;
-border-radius:15px;
+  background:linear-gradient(145deg,#121212,#090909);
+  border:1px solid #252525;
+  border-radius:20px;
+  padding:28px;
+  transition:.25s;
 }
 
-.feature-icon{
-font-size:28px;
-margin-bottom:15px;
+.feature:hover{
+  transform:translateY(-5px);
+  border-color:#5a1115;
+}
+
+.icon{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:#21080a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#ff3340;
+  font-size:23px;
+  margin-bottom:20px;
 }
 
 .feature h3{
-font-size:17px;
+  margin-bottom:10px;
 }
 
 .feature p{
-margin-top:9px;
-color:#777;
-font-size:13px;
-line-height:1.6;
+  color:#888;
+  line-height:1.6;
 }
 
-/* ================= CLONE ================= */
+/* CLONING */
 
-.clone-box{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:30px;
+.clone{
+  background:linear-gradient(145deg,#130607,#090909);
+  border:1px solid #451014;
+  border-radius:22px;
+  padding:35px;
+  text-align:center;
 }
 
-.clone-info,
-.upload-box{
-border:1px solid var(--border);
-background:#0c0c0c;
-border-radius:16px;
-padding:28px;
+.upload{
+  margin-top:25px;
+  border:2px dashed #4b171b;
+  padding:45px 20px;
+  border-radius:18px;
+  cursor:pointer;
 }
 
-.clone-info p{
-color:#777;
-line-height:1.7;
-margin:18px 0;
+.upload:hover{
+  border-color:var(--red);
+  background:#100506;
 }
 
-.upload-box{
-min-height:230px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-border-style:dashed;
-cursor:pointer;
+.upload input{
+  display:none;
 }
 
-.upload-box:hover{
-border-color:var(--green);
-}
-
-.upload-icon{
-font-size:48px;
-margin-bottom:12px;
-}
-
-.upload-box span{
-color:#666;
-font-size:12px;
-margin-top:7px;
-}
-
-/* ================= AUTH ================= */
-
-.overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.8);
-backdrop-filter:blur(15px);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:500;
-}
-
-.auth{
-width:100%;
-max-width:430px;
-padding:30px;
-border-radius:19px;
-background:#101010;
-border:1px solid #292929;
-box-shadow:0 30px 100px #000;
-}
-
-.auth-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:22px;
-}
-
-.auth-head h2{
-font-size:27px;
-}
-
-.close{
-width:35px;
-height:35px;
-border:0;
-border-radius:50%;
-background:#1b1b1b;
-color:#aaa;
-font-size:20px;
-}
-
-.tabs{
-display:grid;
-grid-template-columns:1fr 1fr;
-padding:4px;
-background:#181818;
-border-radius:9px;
-margin-bottom:20px;
-}
-
-.tabs button{
-border:0;
-padding:10px;
-border-radius:7px;
-background:transparent;
-color:#777;
-}
-
-.tabs button.active{
-background:#292929;
-color:#fff;
-}
-
-.input{
-width:100%;
-padding:13px;
-margin-bottom:12px;
-border:1px solid #2b2b2b;
-border-radius:9px;
-background:#171717;
-color:#fff;
-outline:0;
-}
-
-.input:focus{
-border-color:var(--green);
-}
-
-.auth-main{
-width:100%;
-padding:13px;
-border:0;
-border-radius:9px;
-background:var(--green);
-color:#000;
-font-weight:800;
-}
-
-.google{
-width:100%;
-padding:13px;
-margin-top:12px;
-border:1px solid #303030;
-border-radius:9px;
-background:#181818;
-color:#fff;
-font-weight:700;
-}
-
-.divider{
-display:flex;
-align-items:center;
-gap:10px;
-color:#555;
-font-size:11px;
-margin:18px 0;
-}
-
-.divider:before,
-.divider:after{
-content:"";
-height:1px;
-background:#292929;
-flex:1;
-}
-
-.message{
-min-height:20px;
-font-size:13px;
-color:#ff7777;
-margin:7px 0;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-text-align:center;
-border-top:1px solid var(--border);
-padding:50px 20px;
-color:#555;
-}
-
-.dev{
-margin-top:8px;
-color:#777;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:750px){
-
-.navbar{
-padding:0 18px;
-}
-
-.nav-links{
-display:none;
-}
-
-.hero{
-padding-top:80px;
-}
-
-.hero h1{
-letter-spacing:-3px;
-}
-
-.hero-buttons{
-flex-direction:column;
-align-items:center;
-}
-
-.studio-body{
-grid-template-columns:1fr;
-}
-
-.text-area{
-border-right:0;
-border-bottom:1px solid var(--border);
-}
+/* STATS */
 
 .stats{
-grid-template-columns:1fr 1fr;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
-.features,
-.clone-box{
-grid-template-columns:1fr;
+.stat{
+  background:#101010;
+  border:1px solid #242424;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
 }
 
-.profile-card{
-align-items:flex-start;
-flex-direction:column;
+.stat h3{
+  font-size:30px;
+  color:#ff3944;
 }
 
+.stat p{
+  color:#777;
+  margin-top:5px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #222;
+  padding:45px 20px;
+  text-align:center;
+  margin-top:70px;
+  background:#050505;
+}
+
+.footerLogo{
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.developer{
+  margin-top:15px;
+  color:#aaa;
+}
+
+.developer strong{
+  color:#ff3340;
+}
+
+footer small{
+  display:block;
+  color:#555;
+  margin-top:15px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#151515;
+  border:1px solid #3b1014;
+  color:white;
+  padding:15px 20px;
+  border-radius:12px;
+  transform:translateY(120px);
+  opacity:0;
+  transition:.3s;
+  z-index:9999;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .navLinks{
+    display:none;
+  }
+
+  nav{
+    padding:0 20px;
+  }
+
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .controls{
+    grid-template-columns:1fr;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .section{
+    padding:60px 18px;
+  }
+
+  .studio{
+    padding:15px;
+  }
 }
 
 @media(max-width:450px){
 
-.stats{
-grid-template-columns:1fr;
-}
+  .logo{
+    font-size:17px;
+  }
 
-.nav-actions .btn-dark{
-display:none;
-}
+  .logoIcon{
+    width:35px;
+    height:35px;
+  }
 
+  .hero h1{
+    font-size:46px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
 
-
 <body>
 
+<!-- NAVBAR -->
 
-<!-- ================= NAVBAR ================= -->
+<nav>
 
-<header class="navbar">
+  <div class="logo">
+    <div class="logoIcon">🎙️</div>
+    Bangla Voice AI
+  </div>
 
-<div class="logo">
-<div class="logo-mark">V</div>
-Bangla Voice AI
-</div>
+  <div class="navLinks">
+    <a href="#studio">Studio</a>
+    <a href="#features">Features</a>
+    <a href="#clone">Voice Clone</a>
+  </div>
 
-<nav class="nav-links">
-<a href="#studio">Studio</a>
-<a href="#features">Features</a>
-<a href="#clone">Voice Clone</a>
+  <button class="freeBtn" onclick="scrollToStudio()">
+    Try Free
+  </button>
+
 </nav>
 
-<div class="nav-actions">
 
-<button id="loginBtn"
-class="btn btn-dark"
-onclick="openAuth('login')">
-Sign in
-</button>
-
-<button id="signupBtn"
-class="btn btn-green"
-onclick="openAuth('register')">
-Get Started
-</button>
-
-<button id="logoutBtn"
-class="btn btn-dark hidden"
-onclick="logoutUser()">
-Logout
-</button>
-
-</div>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="badge">
-✦ Professional AI Voice Studio
-</div>
+  <div class="badge">
+    🔴 100% Free Voice Studio
+  </div>
 
-<h1>
-Your words.<br>
-<span>Your voice.</span>
-</h1>
+  <h1>
+    Turn Text Into
+    <br>
+    <span class="gradientText">Powerful Voice.</span>
+  </h1>
 
-<p>
-Create natural voice experiences with Bangla Voice AI.
-Generate speech, manage your voices and build your own AI voice workspace.
-</p>
+  <p>
+    Create natural sounding speech directly from your browser.
+    Bangla and English supported with speed and voice controls.
+  </p>
 
-<div class="hero-buttons">
+  <div class="heroButtons">
+    <button class="primary" onclick="scrollToStudio()">
+      🎙️ Start Creating
+    </button>
 
-<button class="btn btn-green"
-onclick="openAuth('register')">
-Start Creating →
-</button>
-
-<button class="btn btn-dark"
-onclick="document.getElementById('features').scrollIntoView()">
-Explore Platform
-</button>
-
-</div>
+    <button class="secondary" onclick="document.getElementById('features').scrollIntoView()">
+      Explore Features
+    </button>
+  </div>
 
 </section>
 
 
-<!-- ================= DASHBOARD ================= -->
+<!-- STATS -->
 
-<section id="dashboard"
-class="container dashboard hidden">
+<section class="section">
 
-<div class="profile-card">
+  <div class="stats">
 
-<div class="profile-left">
+    <div class="stat">
+      <h3>∞</h3>
+      <p>Free Generations</p>
+    </div>
 
-<div id="avatar"
-class="profile-avatar">
-U
-</div>
+    <div class="stat">
+      <h3>2+</h3>
+      <p>Languages</p>
+    </div>
 
-<div class="profile-info">
+    <div class="stat">
+      <h3>HD</h3>
+      <p>Audio Output</p>
+    </div>
 
-<h2 id="welcome">
-Welcome
-</h2>
+    <div class="stat">
+      <h3>24/7</h3>
+      <p>Available</p>
+    </div>
 
-<p id="email">
-user@example.com
-</p>
-
-</div>
-
-</div>
-
-<button class="btn btn-dark"
-onclick="logoutUser()">
-Sign out
-</button>
-
-</div>
-
-
-<div class="stats">
-
-<div class="stat">
-<div class="stat-label">
-Available Credits
-</div>
-<div class="stat-value">
-10,000
-</div>
-</div>
-
-<div class="stat">
-<div class="stat-label">
-My Voices
-</div>
-<div class="stat-value">
-0
-</div>
-</div>
-
-<div class="stat">
-<div class="stat-label">
-Generations
-</div>
-<div class="stat-value">
-0
-</div>
-</div>
-
-<div class="stat">
-<div class="stat-label">
-Plan
-</div>
-<div class="stat-value">
-FREE
-</div>
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- ================= STUDIO ================= -->
+<!-- STUDIO -->
 
-<section id="studio"
-class="container hidden">
+<section class="section" id="studio">
 
-<div class="section-label">
-VOICE STUDIO
-</div>
+  <div class="sectionTitle">
 
-<h2 class="section-title">
-Create Speech
-</h2>
+    <h2>Voice Studio</h2>
 
+    <p>
+      Write your text and generate speech instantly.
+    </p>
 
-<div class="studio">
+  </div>
 
-<div class="studio-head">
+  <div class="studio">
 
-<h3>Text to Speech</h3>
-
-<div class="credit-pill">
-10,000 Credits
-</div>
-
-</div>
+    <textarea
+      id="text"
+      class="textArea"
+      placeholder="Write something in Bangla or English..."
+    >আসসালামু আলাইকুম! এটি Bangla Voice AI-এর একটি ডেমো।</textarea>
 
 
-<div class="studio-body">
+    <div class="controls">
+
+      <div class="control">
+
+        <label>VOICE</label>
+
+        <select id="voiceSelect">
+          <option value="">Loading voices...</option>
+        </select>
+
+      </div>
 
 
-<div class="text-area">
+      <div class="control">
 
-<label>TEXT</label>
+        <label>
+          SPEED:
+          <span id="speedValue">1.0x</span>
+        </label>
 
-<textarea id="textInput"
-placeholder="Write something...">হ্যালো! Bangla Voice AI-তে আপনাকে স্বাগতম।</textarea>
+        <input
+          id="speed"
+          type="range"
+          min="0.5"
+          max="2"
+          step="0.1"
+          value="1"
+          oninput="updateSpeed()"
+        >
 
-<div class="char-count">
-<span id="counter">0</span> characters
-</div>
-
-</div>
-
-
-<div class="controls">
-
-<div class="control-title">
-VOICE
-</div>
-
-<div class="voice-select">
-
-<div class="voice-avatar">
-BD
-</div>
-
-<div class="voice-name">
-<strong>Bangla Natural</strong>
-<small>Bangla • Male</small>
-</div>
-
-</div>
+      </div>
 
 
-<div class="control">
+      <div class="control">
 
-<div class="control-head">
-<span>Speed</span>
-<b id="speedValue">1.0x</b>
-</div>
+        <label>
+          PITCH:
+          <span id="pitchValue">1.0</span>
+        </label>
 
-<input
-id="speed"
-type="range"
-min=".5"
-max="2"
-step=".1"
-value="1">
+        <input
+          id="pitch"
+          type="range"
+          min="0"
+          max="2"
+          step="0.1"
+          value="1"
+          oninput="updatePitch()"
+        >
 
-</div>
+      </div>
 
-
-<div class="control">
-
-<div class="control-title">
-OUTPUT FORMAT
-</div>
-
-<select>
-<option>MP3</option>
-<option>WAV</option>
-</select>
-
-</div>
+    </div>
 
 
-<button class="generate"
-onclick="generateSpeech()">
-Generate Voice ✦
-</button>
-
-</div>
-
-</div>
+    <button class="generate" onclick="generateVoice()">
+      🔊 Generate Voice
+    </button>
 
 
-<div class="player">
+    <div class="player" id="player">
 
-<button class="play"
-onclick="playSpeech()">
-▶
-</button>
+      <p style="margin-bottom:12px;color:#aaa;">
+        Generated Voice
+      </p>
 
-<div class="wave">
+      <audio id="audioPlayer" controls></audio>
 
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
-<span></span><span></span><span></span>
+    </div>
 
-</div>
-
-<div id="status"
-class="status">
-Ready
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- FEATURES -->
 
-<section id="features"
-class="container">
+<section class="section" id="features">
 
-<div class="section-label">
-PLATFORM
-</div>
+  <div class="sectionTitle">
 
-<h2 class="section-title">
-Everything you need for voice AI.
-</h2>
+    <h2>Built For Creators</h2>
 
+    <p>
+      Everything you need for quick voice creation.
+    </p>
 
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
-🎙️
-</div>
-
-<h3>Natural Voices</h3>
-
-<p>
-Create natural-sounding speech for Bangla and English content.
-</p>
-
-</div>
+  </div>
 
 
-<div class="feature">
+  <div class="features">
 
-<div class="feature-icon">
-⚡
-</div>
+    <div class="feature">
 
-<h3>Fast Generation</h3>
+      <div class="icon">🎙️</div>
 
-<p>
-A clean workflow designed for quick voice generation.
-</p>
+      <h3>AI Voice Studio</h3>
 
-</div>
+      <p>
+        Convert your text into natural speech directly from your browser.
+      </p>
 
-
-<div class="feature">
-
-<div class="feature-icon">
-🔐
-</div>
-
-<h3>Secure Accounts</h3>
-
-<p>
-Authentication is handled through Firebase Authentication.
-</p>
-
-</div>
-
-</div>
-
-</section>
+    </div>
 
 
-<!-- ================= CLONE ================= -->
+    <div class="feature">
 
-<section id="clone"
-class="container">
+      <div class="icon">🇧🇩</div>
 
-<div class="section-label">
-VOICE CLONING
-</div>
+      <h3>Bangla Friendly</h3>
 
-<h2 class="section-title">
-Create your own voice.
-</h2>
+      <p>
+        Supports Bangla text and English text using available device voices.
+      </p>
 
-
-<div class="clone-box">
-
-<div class="clone-info">
-
-<h3>Personal Voice</h3>
-
-<p>
-Upload an audio sample and connect it to a supported voice-cloning backend.
-Only clone voices you own or have permission to use.
-</p>
-
-<button class="btn btn-green"
-onclick="document.getElementById('audioFile').click()">
-Upload Voice →
-</button>
-
-<input
-id="audioFile"
-type="file"
-accept="audio/*"
-hidden
-onchange="voiceSelected(this)">
-
-</div>
+    </div>
 
 
-<div class="upload-box"
-onclick="document.getElementById('audioFile').click()">
+    <div class="feature">
 
-<div class="upload-icon">
-🎧
-</div>
+      <div class="icon">⚡</div>
 
-<strong>
-Drop your voice sample
-</strong>
+      <h3>Instant Generation</h3>
 
-<span>
-MP3 • WAV • M4A
-</span>
+      <p>
+        No complicated setup. Write text and generate speech with one click.
+      </p>
 
-</div>
+    </div>
 
-</div>
+
+    <div class="feature">
+
+      <div class="icon">🎚️</div>
+
+      <h3>Voice Controls</h3>
+
+      <p>
+        Adjust speech speed and pitch according to your project.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="icon">📱</div>
+
+      <h3>Mobile Friendly</h3>
+
+      <p>
+        Designed to work smoothly on Android, iPhone, tablet and desktop.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="icon">🆓</div>
+
+      <h3>Completely Free</h3>
+
+      <p>
+        No login and no account required for the browser demo.
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================= AUTH ================= -->
+<!-- VOICE CLONE -->
 
-<div id="authOverlay"
-class="overlay hidden">
+<section class="section" id="clone">
 
-<div class="auth">
+  <div class="sectionTitle">
 
-<div class="auth-head">
+    <h2>Voice Clone</h2>
 
-<h2 id="authTitle">
-Welcome back
-</h2>
+    <p>
+      Prepare your voice workflow for future AI voice cloning.
+    </p>
 
-<button class="close"
-onclick="closeAuth()">
-×
-</button>
-
-</div>
+  </div>
 
 
-<div class="tabs">
+  <div class="clone">
 
-<button id="loginTab"
-class="active"
-onclick="switchAuth('login')">
-Login
-</button>
+    <div style="font-size:55px;margin-bottom:15px;">
+      🎤
+    </div>
 
-<button id="registerTab"
-onclick="switchAuth('register')">
-Register
-</button>
+    <h2>Upload Voice Sample</h2>
 
-</div>
+    <p style="color:#888;margin-top:10px;">
+      Voice cloning backend can be connected here later.
+    </p>
 
+    <label class="upload">
 
-<input
-id="nameInput"
-class="input hidden"
-type="text"
-placeholder="Full name">
+      <input
+        type="file"
+        accept="audio/*"
+        onchange="voiceUploaded(event)"
+      >
 
+      <div style="font-size:35px;">📁</div>
 
-<input
-id="emailInput"
-class="input"
-type="email"
-placeholder="Email address"
-autocomplete="email">
+      <p style="margin-top:10px;">
+        Tap to select an audio file
+      </p>
 
+      <small style="color:#666;">
+        MP3 / WAV / M4A
+      </small>
 
-<input
-id="passwordInput"
-class="input"
-type="password"
-placeholder="Password"
-autocomplete="current-password">
+    </label>
 
+    <p
+      id="uploadStatus"
+      style="color:#ff3340;margin-top:18px;"
+    ></p>
 
-<div id="authMessage"
-class="message">
-</div>
+  </div>
+
+</section>
 
 
-<button
-id="authAction"
-class="auth-main"
-onclick="emailAuth()">
-Sign in
-</button>
-
-
-<div class="divider">
-OR
-</div>
-
-
-<button
-class="google"
-onclick="googleLogin()">
-🌐 Continue with Google
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
-<div>
-© 2026 Bangla Voice AI
-</div>
+  <div class="footerLogo">
+    🎙️ Bangla Voice AI
+  </div>
 
-<div class="dev">
-Developer: <strong>MD RAFIM HOSSEN</strong>
-</div>
+  <p style="color:#777;">
+    Free AI-inspired voice creation platform.
+  </p>
+
+  <div class="developer">
+    Developed by
+    <strong>MD RAFIM HOSSEN</strong>
+  </div>
+
+  <small>
+    © 2026 Bangla Voice AI. All rights reserved.
+  </small>
 
 </footer>
 
 
-<!-- ================= FIREBASE ================= -->
-
-<script type="module">
-
-import {
-initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+<div class="toast" id="toast"></div>
 
 
-import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-GoogleAuthProvider,
-signInWithPopup,
-onAuthStateChanged,
-signOut,
-updateProfile
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+<script>
+
+/* ================================
+   VOICE ENGINE
+================================ */
+
+const voiceSelect =
+  document.getElementById("voiceSelect");
+
+const textBox =
+  document.getElementById("text");
+
+let voices = [];
 
 
-/*
-==================================================
-🔥 YOUR FIREBASE CONFIG
-==================================================
+function loadVoices(){
 
-Firebase Console
-→ Project Settings
-→ General
-→ Your apps
-→ Web App
-→ Config
+  voices =
+    window.speechSynthesis.getVoices();
 
-Copy the values and replace EVERYTHING below.
+  voiceSelect.innerHTML = "";
 
-==================================================
-*/
+  if(!voices.length){
 
-const firebaseConfig = {
+    const option =
+      document.createElement("option");
 
-apiKey:
-"PASTE_YOUR_REAL_API_KEY",
+    option.textContent =
+      "Default device voice";
 
-authDomain:
-"PASTE_YOUR_PROJECT_ID.firebaseapp.com",
+    option.value = "";
 
-projectId:
-"PASTE_YOUR_PROJECT_ID",
+    voiceSelect.appendChild(option);
 
-storageBucket:
-"PASTE_YOUR_STORAGE_BUCKET",
-
-messagingSenderId:
-"PASTE_YOUR_MESSAGING_SENDER_ID",
-
-appId:
-"PASTE_YOUR_APP_ID"
-
-};
+    return;
+  }
 
 
-/* FIREBASE */
+  voices.forEach((voice,index)=>{
 
-const app =
-initializeApp(firebaseConfig);
+    const option =
+      document.createElement("option");
 
-const auth =
-getAuth(app);
+    option.value = index;
 
-const googleProvider =
-new GoogleAuthProvider();
+    option.textContent =
+      voice.name +
+      " — " +
+      voice.lang;
 
+    voiceSelect.appendChild(option);
 
-/* VARIABLES */
-
-let authMode="login";
-
-
-/* ELEMENTS */
-
-const overlay=
-document.getElementById("authOverlay");
-
-const title=
-document.getElementById("authTitle");
-
-const nameInput=
-document.getElementById("nameInput");
-
-const emailInput=
-document.getElementById("emailInput");
-
-const passwordInput=
-document.getElementById("passwordInput");
-
-const authAction=
-document.getElementById("authAction");
-
-const message=
-document.getElementById("authMessage");
-
-
-/* OPEN AUTH */
-
-window.openAuth=function(mode){
-
-switchAuth(mode);
-
-overlay.classList.remove("hidden");
-
-};
-
-
-/* CLOSE AUTH */
-
-window.closeAuth=function(){
-
-overlay.classList.add("hidden");
-
-message.textContent="";
-
-};
-
-
-/* SWITCH AUTH */
-
-window.switchAuth=function(mode){
-
-authMode=mode;
-
-message.textContent="";
-
-if(mode==="login"){
-
-title.textContent="Welcome back";
-
-authAction.textContent="Sign in";
-
-nameInput.classList.add("hidden");
-
-document
-.getElementById("loginTab")
-.classList.add("active");
-
-document
-.getElementById("registerTab")
-.classList.remove("active");
-
-}else{
-
-title.textContent="Create account";
-
-authAction.textContent="Create account";
-
-nameInput.classList.remove("hidden");
-
-document
-.getElementById("loginTab")
-.classList.remove("active");
-
-document
-.getElementById("registerTab")
-.classList.add("active");
+  });
 
 }
 
-};
 
-
-/* EMAIL AUTH */
-
-window.emailAuth=async function(){
-
-const email=
-emailInput.value.trim();
-
-const password=
-passwordInput.value;
-
-const name=
-nameInput.value.trim();
-
-
-if(!email||!password){
-
-showError("Email এবং password দিন।");
-
-return;
-
-}
-
-
-if(authMode==="register"&&!name){
-
-showError("আপনার নাম লিখুন।");
-
-return;
-
-}
-
-
-message.style.color="#aaa";
-
-message.textContent="Please wait...";
-
-
-try{
-
-if(authMode==="register"){
-
-const result=
-await createUserWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-if(name){
-
-await updateProfile(
-result.user,
-{
-displayName:name
-}
-);
-
-}
-
-}else{
-
-await signInWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-}
-
-closeAuth();
-
-}catch(error){
-
-showError(firebaseError(error.code));
-
-}
-
-};
-
-
-/* GOOGLE LOGIN */
-
-window.googleLogin=async function(){
-
-message.style.color="#aaa";
-
-message.textContent=
-"Opening Google...";
-
-try{
-
-await signInWithPopup(
-auth,
-googleProvider
-);
-
-closeAuth();
-
-}catch(error){
-
-showError(firebaseError(error.code));
-
-}
-
-};
-
-
-/* LOGOUT */
-
-window.logoutUser=async function(){
-
-await signOut(auth);
-
-};
-
-
-/* AUTH STATE */
-
-onAuthStateChanged(
-auth,
-(user)=>{
-
-if(user){
-
-showUser(user);
-
-}else{
-
-hideUser();
-
-}
-
-});
-
-
-/* SHOW USER */
-
-function showUser(user){
-
-document
-.getElementById("dashboard")
-.classList.remove("hidden");
-
-document
-.getElementById("studio")
-.classList.remove("hidden");
-
-
-document
-.getElementById("loginBtn")
-.classList.add("hidden");
-
-document
-.getElementById("signupBtn")
-.classList.add("hidden");
-
-document
-.getElementById("logoutBtn")
-.classList.remove("hidden");
-
-
-const name=
-user.displayName||
-"Voice Creator";
-
-document
-.getElementById("welcome")
-textContent="Hello, "+name;
-
-document
-.getElementById("email")
-textContent=user.email||"";
-
-
-const avatar=
-document.getElementById("avatar");
-
-
-if(user.photoURL){
-
-avatar.innerHTML=
-"<img src='"+safeURL(user.photoURL)+"'>";
-
-}else{
-
-avatar.textContent=
-name.charAt(0).toUpperCase();
-
-}
-
-}
-
-
-/* HIDE USER */
-
-function hideUser(){
-
-document
-.getElementById("dashboard")
-.classList.add("hidden");
-
-document
-.getElementById("studio")
-.classList.add("hidden");
-
-
-document
-.getElementById("loginBtn")
-.classList.remove("hidden");
-
-document
-.getElementById("signupBtn")
-.classList.remove("hidden");
-
-document
-.getElementById("logoutBtn")
-.classList.add("hidden");
-
-}
-
-
-/* ERROR */
-
-function showError(text){
-
-message.style.color="#ff7777";
-
-message.textContent=text;
-
-}
-
-
-function firebaseError(code){
-
-const errors={
-
-"auth/email-already-in-use":
-"এই email দিয়ে account ইতিমধ্যে আছে।",
-
-"auth/invalid-email":
-"Email address সঠিক নয়।",
-
-"auth/weak-password":
-"Password কমপক্ষে 6 characters দিন।",
-
-"auth/invalid-credential":
-"Email অথবা password সঠিক নয়।",
-
-"auth/popup-closed-by-user":
-"Google login বন্ধ করা হয়েছে।",
-
-"auth/popup-blocked":
-"Browser popup block করেছে।",
-
-"auth/unauthorized-domain":
-"এই domain Firebase Authorized Domains-এ যোগ করুন।",
-
-"auth/api-key-not-valid":
-"Firebase API key সঠিক নয়।",
-
-};
-
-return errors[code]||
-"Authentication error: "+code;
-
-}
-
-
-/* SAFE URL */
-
-function safeURL(url){
-
-try{
-
-const parsed=new URL(url);
+loadVoices();
 
 if(
-parsed.protocol==="https:"||
-parsed.protocol==="http:"
+  "speechSynthesis" in window
 ){
-
-return parsed.href;
-
-}
-
-}catch(e){}
-
-return "";
-
+  window.speechSynthesis.onvoiceschanged =
+    loadVoices;
 }
 
 
-/* CHARACTER COUNTER */
+/* ================================
+   SPEED
+================================ */
 
-const textInput=
-document.getElementById("textInput");
+function updateSpeed(){
 
-textInput.addEventListener(
-"input",
-function(){
+  const value =
+    document.getElementById("speed").value;
 
-document
-.getElementById("counter")
-.textContent=this.value.length;
-
-});
-
-document
-.getElementById("counter")
-.textContent=textInput.value.length;
-
-
-/* SPEED */
-
-const speed=
-document.getElementById("speed");
-
-speed.addEventListener(
-"input",
-function(){
-
-document
-.getElementById("speedValue")
-.textContent=this.value+"x";
-
-});
-
-
-/* DEMO GENERATION */
-
-window.generateSpeech=function(){
-
-const text=
-textInput.value.trim();
-
-if(!text){
-
-document
-.getElementById("status")
-.textContent=
-"Enter some text.";
-
-return;
-
-}
-
-document
-.getElementById("status")
-.textContent=
-"Ready to play ✓";
-
-};
-
-
-/* BROWSER TTS DEMO */
-
-window.playSpeech=function(){
-
-const text=
-textInput.value.trim();
-
-if(!text){
-
-alert("আগে কিছু text লিখুন।");
-
-return;
-
+  document.getElementById("speedValue")
+    .textContent =
+    value + "x";
 }
 
 
-if(!window.speechSynthesis){
+/* ================================
+   PITCH
+================================ */
 
-alert("এই browser-এ Speech Synthesis নেই।");
+function updatePitch(){
 
-return;
+  const value =
+    document.getElementById("pitch").value;
+
+  document.getElementById("pitchValue")
+    .textContent =
+    value;
+}
+
+
+/* ================================
+   GENERATE
+================================ */
+
+function generateVoice(){
+
+  const text =
+    textBox.value.trim();
+
+  if(!text){
+
+    showToast(
+      "Please write some text first."
+    );
+
+    return;
+  }
+
+
+  if(
+    !("speechSynthesis" in window)
+  ){
+
+    showToast(
+      "Your browser does not support voice generation."
+    );
+
+    return;
+  }
+
+
+  window.speechSynthesis.cancel();
+
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+
+  const selected =
+    voiceSelect.value;
+
+
+  if(
+    selected !== "" &&
+    voices[selected]
+  ){
+
+    utterance.voice =
+      voices[selected];
+
+  }
+
+
+  utterance.rate =
+    Number(
+      document.getElementById("speed").value
+    );
+
+
+  utterance.pitch =
+    Number(
+      document.getElementById("pitch").value
+    );
+
+
+  utterance.volume = 1;
+
+
+  utterance.onstart = function(){
+
+    showToast(
+      "🔊 Voice generation started"
+    );
+
+  };
+
+
+  utterance.onend = function(){
+
+    showToast(
+      "✅ Voice generation completed"
+    );
+
+  };
+
+
+  utterance.onerror = function(){
+
+    showToast(
+      "Voice generation failed."
+    );
+
+  };
+
+
+  window.speechSynthesis.speak(
+    utterance
+  );
+
+
+  document.getElementById("player")
+    .style.display =
+    "block";
+}
+
+
+/* ================================
+   UPLOAD
+================================ */
+
+function voiceUploaded(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+
+  document.getElementById(
+    "uploadStatus"
+  ).textContent =
+    "✓ Selected: " + file.name;
+
+
+  showToast(
+    "Voice sample selected successfully."
+  );
+}
+
+
+/* ================================
+   SCROLL
+================================ */
+
+function scrollToStudio(){
+
+  document.getElementById("studio")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
 }
 
 
-speechSynthesis.cancel();
+/* ================================
+   TOAST
+================================ */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent =
+    message;
+
+  toast.classList.add("show");
 
 
-const speech=
-new SpeechSynthesisUtterance(text);
+  setTimeout(()=>{
 
-speech.lang=
-/[\u0980-\u09FF]/.test(text)
-?"bn-BD"
-:"en-US";
+    toast.classList.remove("show");
 
-speech.rate=
-Number(speed.value);
+  },3000);
 
-
-speech.onstart=()=>{
-
-document
-.getElementById("status")
-.textContent="Playing...";
-
-};
-
-speech.onend=()=>{
-
-document
-.getElementById("status")
-.textContent="Finished ✓";
-
-};
-
-speechSynthesis.speak(speech);
-
-};
-
-
-/* VOICE UPLOAD DEMO */
-
-window.voiceSelected=function(input){
-
-if(!input.files.length)
-return;
-
-const file=input.files[0];
-
-alert(
-"Selected voice sample:\n"+
-file.name+
-"\n\nBackend connect করলে এখান থেকেই voice cloning process শুরু করা যাবে।"
-);
-
-};
+}
 
 </script>
 
