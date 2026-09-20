@@ -1,0 +1,1101 @@
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Bangla Voice AI</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070707;
+color:#fff;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+border-bottom:1px solid #202020;
+background:rgba(7,7,7,.92);
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:18px;
+font-weight:bold;
+}
+
+.logo span{
+color:#a8ff3d;
+margin-right:7px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+color:#999;
+text-decoration:none;
+}
+
+.nav-links a:hover{
+color:#fff;
+}
+
+.login{
+background:#171717;
+border:1px solid #292929;
+color:#fff;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px 100px;
+background:
+radial-gradient(circle at center,#17200c 0%,#070707 45%);
+}
+
+.badge{
+display:inline-block;
+padding:8px 15px;
+border:1px solid #303030;
+border-radius:30px;
+color:#b7ff65;
+font-size:13px;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:clamp(48px,8vw,90px);
+line-height:.95;
+letter-spacing:-4px;
+}
+
+.hero h1 span{
+color:#a8ff3d;
+}
+
+.hero p{
+max-width:620px;
+margin:30px auto;
+color:#999;
+font-size:18px;
+line-height:1.6;
+}
+
+.primary{
+background:#a8ff3d;
+color:#000;
+border:0;
+padding:14px 24px;
+border-radius:9px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.primary:hover{
+background:#c0ff72;
+}
+
+/* COMMON */
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section-title{
+margin-top:8px;
+font-size:34px;
+}
+
+/* STUDIO */
+
+.studio-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:25px;
+}
+
+small,label{
+color:#777;
+font-size:11px;
+letter-spacing:1.5px;
+}
+
+.credits{
+background:#151515;
+border:1px solid #252525;
+padding:10px 15px;
+border-radius:8px;
+color:#aaa;
+}
+
+.workspace{
+display:grid;
+grid-template-columns:1.6fr 1fr;
+gap:1px;
+background:#282828;
+border:1px solid #282828;
+border-radius:14px;
+overflow:hidden;
+}
+
+.text-panel,
+.settings{
+background:#101010;
+padding:25px;
+}
+
+textarea{
+width:100%;
+height:330px;
+margin-top:15px;
+resize:none;
+border:0;
+outline:none;
+background:transparent;
+color:white;
+font-size:18px;
+line-height:1.7;
+font-family:inherit;
+}
+
+.text-footer{
+border-top:1px solid #252525;
+padding-top:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+color:#666;
+}
+
+.generate{
+background:#a8ff3d;
+border:0;
+padding:12px 17px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* VOICE */
+
+.voice-card{
+margin:14px 0 30px;
+background:#191919;
+padding:13px;
+border-radius:9px;
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.voice-info{
+flex:1;
+}
+
+.voice-info small{
+display:block;
+margin-top:4px;
+}
+
+.avatar{
+width:42px;
+height:42px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:#a8ff3d;
+color:#000;
+font-weight:bold;
+}
+
+.voice-arrow{
+background:none;
+color:white;
+font-size:20px;
+}
+
+/* SETTINGS */
+
+.setting{
+margin:18px 0 25px;
+}
+
+.setting-top{
+display:flex;
+justify-content:space-between;
+color:#aaa;
+}
+
+input[type=range]{
+width:100%;
+margin-top:12px;
+accent-color:#a8ff3d;
+}
+
+select{
+width:100%;
+margin-top:12px;
+padding:12px;
+border-radius:8px;
+background:#191919;
+color:#fff;
+border:1px solid #292929;
+}
+
+/* PLAYER */
+
+.player{
+margin-top:15px;
+padding:18px;
+background:#111;
+border:1px solid #222;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.play{
+width:42px;
+height:42px;
+border-radius:50%;
+border:0;
+background:#a8ff3d;
+cursor:pointer;
+}
+
+.wave{
+flex:1;
+display:flex;
+align-items:center;
+gap:4px;
+}
+
+.wave i{
+display:block;
+width:3px;
+height:20px;
+background:#a8ff3d;
+border-radius:4px;
+}
+
+.wave i:nth-child(2n){
+height:35px;
+}
+
+.wave i:nth-child(3n){
+height:15px;
+}
+
+.download{
+background:#202020;
+color:#fff;
+width:40px;
+height:40px;
+border-radius:8px;
+border:0;
+cursor:pointer;
+}
+
+#status{
+color:#888;
+font-size:13px;
+}
+
+/* VOICE LIBRARY */
+
+.voice-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:30px;
+}
+
+.voice{
+padding:25px;
+background:#101010;
+border:1px solid #222;
+border-radius:12px;
+cursor:pointer;
+transition:.2s;
+}
+
+.voice:hover{
+border-color:#a8ff3d;
+transform:translateY(-3px);
+}
+
+.voice strong{
+display:block;
+margin-top:15px;
+}
+
+.voice span{
+display:block;
+margin-top:8px;
+color:#777;
+font-size:13px;
+}
+
+.blue{
+background:#5da9ff;
+}
+
+.purple{
+background:#a879ff;
+}
+
+.orange{
+background:#ff9b4a;
+}
+
+/* CLONE */
+
+.clone{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.clone p{
+color:#888;
+margin:20px 0;
+line-height:1.6;
+}
+
+.upload{
+border:1px dashed #444;
+min-height:220px;
+border-radius:15px;
+display:grid;
+place-items:center;
+align-content:center;
+gap:10px;
+color:#aaa;
+cursor:pointer;
+}
+
+.upload:hover{
+border-color:#a8ff3d;
+}
+
+.upload-icon{
+font-size:45px;
+}
+
+#voiceFile{
+display:none;
+}
+
+/* PRICING */
+
+.price-card{
+margin-top:30px;
+max-width:400px;
+background:#101010;
+border:1px solid #292929;
+padding:30px;
+border-radius:15px;
+}
+
+.price{
+font-size:45px;
+margin:20px 0;
+}
+
+.price span{
+font-size:14px;
+color:#777;
+}
+
+.price-card p{
+color:#888;
+margin:12px 0;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:50px 20px;
+color:#555;
+border-top:1px solid #202020;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.navbar{
+padding:0 20px;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero{
+padding-top:80px;
+}
+
+.hero h1{
+letter-spacing:-2px;
+}
+
+.workspace{
+grid-template-columns:1fr;
+}
+
+.clone{
+grid-template-columns:1fr;
+}
+
+.voice-grid{
+grid-template-columns:1fr;
+}
+
+.studio-header{
+align-items:flex-start;
+flex-direction:column;
+gap:15px;
+}
+
+.text-footer{
+flex-direction:column;
+align-items:stretch;
+}
+
+.generate{
+width:100%;
+}
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="logo">
+<span>◉</span>
+Bangla Voice AI
+</div>
+
+<nav class="nav-links">
+<a href="#studio">Studio</a>
+<a href="#voices">Voices</a>
+<a href="#clone">Voice Clone</a>
+<a href="#pricing">Pricing</a>
+</nav>
+
+<button class="login" onclick="alert('Login system will be connected later.')">
+Sign in
+</button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="badge">
+✦ Next Generation Voice AI
+</div>
+
+<h1>
+Give your words<br>
+<span>a natural voice.</span>
+</h1>
+
+<p>
+Create natural-sounding speech with a modern AI voice platform.
+Bangla and English voice generation in one place.
+</p>
+
+<button class="primary" onclick="openStudio()">
+Try Voice AI →
+</button>
+
+</section>
+
+
+<!-- STUDIO -->
+
+<section class="section" id="studio">
+
+<div class="studio-header">
+
+<div>
+<small>VOICE STUDIO</small>
+<h2 class="section-title">Text to Speech</h2>
+</div>
+
+<div class="credits">
+10,000 credits
+</div>
+
+</div>
+
+
+<div class="workspace">
+
+
+<!-- TEXT -->
+
+<div class="text-panel">
+
+<label>TEXT</label>
+
+<textarea id="textInput">হ্যালো! Bangla Voice AI-তে আপনাকে স্বাগতম। এখানে আপনার লেখা স্বাভাবিক কণ্ঠে শোনানো যাবে।</textarea>
+
+<div class="text-footer">
+
+<span id="counter">
+0 characters
+</span>
+
+<button class="generate" onclick="generateVoice()">
+Generate Voice ✦
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div class="settings">
+
+<label>VOICE</label>
+
+<div class="voice-card">
+
+<div class="avatar">
+BD
+</div>
+
+<div class="voice-info">
+<strong>Bangla Natural</strong>
+<small>Bangla • Male</small>
+</div>
+
+<button class="voice-arrow">
+⌄
+</button>
+
+</div>
+
+
+<label>VOICE SETTINGS</label>
+
+
+<div class="setting">
+
+<div class="setting-top">
+<span>Speed</span>
+<b id="speedValue">1.0x</b>
+</div>
+
+<input
+type="range"
+id="speed"
+min="0.5"
+max="2"
+step="0.1"
+value="1">
+
+</div>
+
+
+<div class="setting">
+
+<div class="setting-top">
+<span>Pitch</span>
+<b id="pitchValue">0</b>
+</div>
+
+<input
+type="range"
+id="pitch"
+min="-10"
+max="10"
+value="0">
+
+</div>
+
+
+<label>OUTPUT FORMAT</label>
+
+<select id="format">
+
+<option>MP3</option>
+<option>WAV</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- PLAYER -->
+
+<div class="player">
+
+<button class="play" onclick="playVoice()">
+▶
+</button>
+
+<div class="wave">
+
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+
+</div>
+
+<span id="status">
+Ready
+</span>
+
+<button class="download" onclick="downloadAudio()">
+↓
+</button>
+
+</div>
+
+</section>
+
+
+<!-- VOICE LIBRARY -->
+
+<section class="section" id="voices">
+
+<small>VOICE LIBRARY</small>
+
+<h2 class="section-title">
+Choose your voice
+</h2>
+
+
+<div class="voice-grid">
+
+
+<div class="voice" onclick="selectVoice('Bangla Natural')">
+
+<div class="avatar blue">
+BD
+</div>
+
+<strong>
+Bangla Natural
+</strong>
+
+<span>
+Bangla • Male
+</span>
+
+</div>
+
+
+<div class="voice" onclick="selectVoice('Bangla Female')">
+
+<div class="avatar purple">
+BD
+</div>
+
+<strong>
+Bangla Female
+</strong>
+
+<span>
+Bangla • Female
+</span>
+
+</div>
+
+
+<div class="voice" onclick="selectVoice('English Natural')">
+
+<div class="avatar orange">
+EN
+</div>
+
+<strong>
+English Natural
+</strong>
+
+<span>
+English • Male
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- VOICE CLONE -->
+
+<section class="section clone" id="clone">
+
+
+<div>
+
+<small>
+VOICE CLONING
+</small>
+
+<h2 class="section-title">
+Create your own AI voice.
+</h2>
+
+<p>
+Upload a voice sample and connect it to your AI voice engine.
+</p>
+
+<button class="primary" onclick="document.getElementById('voiceFile').click()">
+Create Voice →
+</button>
+
+<input
+type="file"
+id="voiceFile"
+accept="audio/*"
+onchange="voiceUploaded(this)">
+
+</div>
+
+
+<div class="upload" onclick="document.getElementById('voiceFile').click()">
+
+<div class="upload-icon">
+🎙️
+</div>
+
+<strong>
+Upload voice sample
+</strong>
+
+<span>
+WAV, MP3 or M4A
+</span>
+
+</div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section class="section" id="pricing">
+
+<small>
+PRICING
+</small>
+
+<h2 class="section-title">
+Start creating for free.
+</h2>
+
+
+<div class="price-card">
+
+<h3>
+Free
+</h3>
+
+<div class="price">
+$0 <span>/ month</span>
+</div>
+
+<p>✓ 10,000 characters</p>
+<p>✓ Basic voices</p>
+<p>✓ MP3 export</p>
+<p>✓ Voice Studio</p>
+
+<button class="primary">
+Get Started
+</button>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Bangla Voice AI — Built with AI
+
+</footer>
+
+
+<script>
+
+/* CHARACTER COUNTER */
+
+const textInput =
+document.getElementById("textInput");
+
+const counter =
+document.getElementById("counter");
+
+function updateCounter(){
+
+counter.textContent =
+textInput.value.length +
+" characters";
+
+}
+
+textInput.addEventListener(
+"input",
+updateCounter
+);
+
+updateCounter();
+
+
+/* SPEED */
+
+const speed =
+document.getElementById("speed");
+
+const speedValue =
+document.getElementById("speedValue");
+
+speed.addEventListener("input",function(){
+
+speedValue.textContent =
+this.value + "x";
+
+});
+
+
+/* PITCH */
+
+const pitch =
+document.getElementById("pitch");
+
+const pitchValue =
+document.getElementById("pitchValue");
+
+pitch.addEventListener("input",function(){
+
+pitchValue.textContent =
+this.value;
+
+});
+
+
+/* OPEN STUDIO */
+
+function openStudio(){
+
+document.getElementById("studio")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* GENERATE */
+
+function generateVoice(){
+
+const text =
+textInput.value.trim();
+
+if(!text){
+
+alert("আগে কিছু লেখা লিখুন।");
+
+return;
+
+}
+
+document.getElementById("status")
+.textContent =
+"Voice generated ✓";
+
+}
+
+
+/* PLAY */
+
+function playVoice(){
+
+const text =
+textInput.value.trim();
+
+if(!text){
+
+alert("আগে কিছু লেখা লিখুন।");
+
+return;
+
+}
+
+if(!("speechSynthesis" in window)){
+
+alert(
+"এই browser-এ Speech Synthesis support নেই।"
+);
+
+return;
+
+}
+
+
+speechSynthesis.cancel();
+
+
+const speech =
+new SpeechSynthesisUtterance(text);
+
+
+/* Browser voice */
+
+speech.lang =
+/[\u0980-\u09FF]/.test(text)
+? "bn-BD"
+: "en-US";
+
+
+speech.rate =
+Number(speed.value);
+
+
+/* Pitch */
+
+speech.pitch =
+1 + (Number(pitch.value) / 20);
+
+
+speech.onstart=function(){
+
+document.getElementById("status")
+.textContent =
+"Playing...";
+
+};
+
+
+speech.onend=function(){
+
+document.getElementById("status")
+.textContent =
+"Finished ✓";
+
+};
+
+
+speechSynthesis.speak(speech);
+
+}
+
+
+/* DOWNLOAD DEMO */
+
+function downloadAudio(){
+
+alert(
+"Real MP3/WAV download এবং AI voice cloning চালু করতে backend/API connect করতে হবে।"
+);
+
+}
+
+
+/* SELECT VOICE */
+
+function selectVoice(name){
+
+document.getElementById("status")
+.textContent =
+name + " selected ✓";
+
+}
+
+
+/* UPLOAD */
+
+function voiceUploaded(input){
+
+if(input.files.length){
+
+document.getElementById("status")
+.textContent =
+"Voice sample selected ✓";
+
+alert(
+"Voice sample selected: " +
+input.files[0].name +
+"\n\nAI cloning-এর জন্য backend/API connect করতে হবে।"
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
