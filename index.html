@@ -1,528 +1,598 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#e50914">
 
-<title>Bangla Voice AI — Free Voice Studio</title>
+<title>Bangla Voice AI — Free AI Voice Studio</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  --red:#e50914;
-  --red2:#ff3340;
-  --dark:#070707;
-  --card:#111111;
-  --card2:#171717;
-  --text:#ffffff;
-  --muted:#999999;
-  --border:#292929;
+--red:#e50914;
+--red2:#ff3340;
+--dark:#050505;
+--card:#101010;
+--card2:#151515;
+--border:#292929;
+--text:#fff;
+--muted:#929292;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(circle at 15% 10%,rgba(229,9,20,.20),transparent 30%),
-    radial-gradient(circle at 85% 30%,rgba(255,30,45,.12),transparent 30%),
-    #050505;
-  color:white;
-  min-height:100vh;
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at 10% 0%,rgba(229,9,20,.22),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(255,30,45,.13),transparent 28%),
+#050505;
+color:#fff;
+min-height:100vh;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6%;
-  border-bottom:1px solid #222;
-  background:rgba(5,5,5,.85);
-  backdrop-filter:blur(18px);
-  position:sticky;
-  top:0;
-  z-index:1000;
+height:72px;
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 6%;
+background:rgba(5,5,5,.88);
+backdrop-filter:blur(20px);
+border-bottom:1px solid #242424;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:21px;
-  font-weight:800;
+display:flex;
+align-items:center;
+gap:11px;
+font-weight:800;
+font-size:20px;
 }
 
 .logoIcon{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,var(--red),#7d0008);
-  box-shadow:0 0 25px rgba(229,9,20,.4);
+width:40px;
+height:40px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#ff2632,#920008);
+box-shadow:0 0 30px rgba(229,9,20,.4);
 }
 
-.navLinks{
-  display:flex;
-  gap:28px;
+.navlinks{
+display:flex;
+gap:27px;
 }
 
-.navLinks a{
-  color:#aaa;
-  text-decoration:none;
-  font-size:14px;
+.navlinks a{
+text-decoration:none;
+color:#999;
+font-size:14px;
 }
 
-.navLinks a:hover{
-  color:white;
-}
+.navlinks a:hover{color:#fff}
 
 .freeBtn{
-  background:var(--red);
-  border:none;
-  color:white;
-  padding:12px 20px;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
+border:0;
+background:var(--red);
+color:#fff;
+padding:12px 20px;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 25px 80px;
-  text-align:center;
+max-width:1200px;
+margin:auto;
+padding:105px 20px 85px;
+text-align:center;
 }
 
 .badge{
-  display:inline-block;
-  padding:8px 14px;
-  border:1px solid #4a1518;
-  background:#160607;
-  border-radius:50px;
-  color:#ff6970;
-  font-size:13px;
-  margin-bottom:25px;
+display:inline-block;
+padding:8px 15px;
+border:1px solid #501318;
+background:#180607;
+color:#ff6870;
+border-radius:50px;
+font-size:13px;
+margin-bottom:25px;
 }
 
 .hero h1{
-  font-size:clamp(45px,8vw,88px);
-  line-height:1;
-  letter-spacing:-4px;
-  margin-bottom:25px;
+font-size:clamp(48px,8vw,90px);
+line-height:.98;
+letter-spacing:-4px;
+margin-bottom:25px;
 }
 
-.gradientText{
-  background:linear-gradient(90deg,#fff,#ff2733,#e50914);
-  -webkit-background-clip:text;
-  color:transparent;
+.gradient{
+background:linear-gradient(90deg,#fff,#ff2632,#e50914);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .hero p{
-  max-width:700px;
-  margin:auto;
-  color:#999;
-  font-size:18px;
-  line-height:1.7;
+max-width:720px;
+margin:auto;
+color:#999;
+font-size:18px;
+line-height:1.7;
 }
 
-.heroButtons{
-  margin-top:35px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.buttons{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.primary,.secondary{
+padding:16px 25px;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+font-size:15px;
 }
 
 .primary{
-  background:var(--red);
-  color:white;
-  border:none;
-  padding:16px 25px;
-  border-radius:12px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 10px 40px rgba(229,9,20,.25);
+border:0;
+background:linear-gradient(90deg,#bd000b,#ff1b27);
+color:#fff;
+box-shadow:0 15px 40px rgba(229,9,20,.25);
 }
 
 .secondary{
-  background:#151515;
-  color:white;
-  border:1px solid #333;
-  padding:16px 25px;
-  border-radius:12px;
-  cursor:pointer;
+border:1px solid #333;
+background:#151515;
+color:#fff;
+}
+
+/* COMMON */
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:75px 20px;
+}
+
+.title{
+text-align:center;
+margin-bottom:40px;
+}
+
+.title h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.title p{color:#888}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.stat{
+background:#101010;
+border:1px solid #252525;
+border-radius:18px;
+padding:25px;
+text-align:center;
+}
+
+.stat h3{
+font-size:31px;
+color:#ff3945;
+}
+
+.stat p{
+margin-top:6px;
+color:#777;
 }
 
 /* STUDIO */
 
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 25px;
-}
-
-.sectionTitle{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.sectionTitle h2{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.sectionTitle p{
-  color:#888;
-}
-
 .studio{
-  background:linear-gradient(145deg,#111,#080808);
-  border:1px solid #282828;
-  border-radius:25px;
-  padding:25px;
-  box-shadow:0 30px 100px rgba(0,0,0,.45);
+background:linear-gradient(145deg,#121212,#080808);
+border:1px solid #292929;
+border-radius:25px;
+padding:25px;
+box-shadow:0 30px 100px rgba(0,0,0,.4);
 }
 
-.textArea{
-  width:100%;
-  min-height:220px;
-  background:#080808;
-  color:white;
-  border:1px solid #292929;
-  border-radius:18px;
-  padding:20px;
-  font-size:17px;
-  outline:none;
-  resize:vertical;
+textarea{
+width:100%;
+height:220px;
+background:#080808;
+border:1px solid #292929;
+border-radius:18px;
+padding:20px;
+resize:vertical;
+outline:none;
+color:#fff;
+font-size:17px;
+line-height:1.6;
 }
 
-.textArea:focus{
-  border-color:var(--red);
-  box-shadow:0 0 0 3px rgba(229,9,20,.1);
+textarea:focus{
+border-color:var(--red);
+box-shadow:0 0 0 3px rgba(229,9,20,.1);
+}
+
+/* VOICE PANEL */
+
+.voicePanel{
+margin-top:20px;
+background:#0c0c0c;
+border:1px solid #242424;
+border-radius:18px;
+padding:18px;
+}
+
+.voiceTop{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+margin-bottom:15px;
+}
+
+.voiceTop h3{font-size:16px}
+
+.voiceSearch{
+width:220px;
+background:#151515;
+border:1px solid #333;
+border-radius:9px;
+padding:10px;
+color:#fff;
+outline:none;
+}
+
+.voiceGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+max-height:300px;
+overflow:auto;
+padding-right:4px;
+}
+
+.voice{
+border:1px solid #292929;
+background:#121212;
+border-radius:13px;
+padding:13px;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:12px;
+transition:.2s;
+}
+
+.voice:hover{
+border-color:#64141a;
+transform:translateY(-1px);
+}
+
+.voice.active{
+border-color:var(--red);
+background:#21080a;
+box-shadow:0 0 20px rgba(229,9,20,.1);
+}
+
+.voiceAvatar{
+width:42px;
+height:42px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#26090b;
+font-size:20px;
+flex:none;
+}
+
+.voiceInfo{
+min-width:0;
+}
+
+.voiceName{
+font-weight:700;
+font-size:14px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.voiceLang{
+font-size:11px;
+color:#777;
+margin-top:4px;
 }
 
 .controls{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:18px;
 }
 
 .control{
-  background:#101010;
-  border:1px solid #252525;
-  border-radius:15px;
-  padding:16px;
+background:#101010;
+border:1px solid #252525;
+border-radius:15px;
+padding:16px;
 }
 
 .control label{
-  display:block;
-  color:#888;
-  font-size:12px;
-  margin-bottom:9px;
-}
-
-select,
-input[type=range]{
-  width:100%;
+display:block;
+font-size:12px;
+color:#888;
+margin-bottom:10px;
 }
 
 select{
-  background:#181818;
-  color:white;
-  border:1px solid #333;
-  padding:12px;
-  border-radius:10px;
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #333;
+background:#181818;
+color:#fff;
 }
 
 input[type=range]{
-  accent-color:var(--red);
+width:100%;
+accent-color:var(--red);
 }
 
 .generate{
-  width:100%;
-  margin-top:20px;
-  padding:18px;
-  border:none;
-  border-radius:14px;
-  background:linear-gradient(90deg,#b9000b,#ff1723);
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 15px 35px rgba(229,9,20,.2);
+width:100%;
+padding:18px;
+margin-top:18px;
+border:0;
+border-radius:14px;
+background:linear-gradient(90deg,#b9000b,#ff1723);
+color:#fff;
+font-weight:800;
+font-size:16px;
+cursor:pointer;
 }
 
-.generate:hover{
-  transform:translateY(-1px);
-}
-
-/* PLAYER */
-
-.player{
-  margin-top:20px;
-  padding:20px;
-  border:1px solid #292929;
-  background:#0c0c0c;
-  border-radius:15px;
-  display:none;
-}
-
-.player audio{
-  width:100%;
+.status{
+margin-top:15px;
+padding:14px;
+border-radius:12px;
+background:#0d0d0d;
+border:1px solid #222;
+color:#aaa;
+display:none;
 }
 
 /* FEATURES */
 
 .features{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
 .feature{
-  background:linear-gradient(145deg,#121212,#090909);
-  border:1px solid #252525;
-  border-radius:20px;
-  padding:28px;
-  transition:.25s;
+background:linear-gradient(145deg,#121212,#090909);
+border:1px solid #252525;
+border-radius:20px;
+padding:27px;
+transition:.25s;
 }
 
 .feature:hover{
-  transform:translateY(-5px);
-  border-color:#5a1115;
+transform:translateY(-5px);
+border-color:#601319;
 }
 
 .icon{
-  width:50px;
-  height:50px;
-  border-radius:14px;
-  background:#21080a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#ff3340;
-  font-size:23px;
-  margin-bottom:20px;
+width:50px;
+height:50px;
+border-radius:14px;
+background:#22080a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
+margin-bottom:18px;
 }
 
-.feature h3{
-  margin-bottom:10px;
-}
+.feature h3{margin-bottom:10px}
 
 .feature p{
-  color:#888;
-  line-height:1.6;
+color:#888;
+line-height:1.6;
 }
 
-/* CLONING */
+/* CLONE */
 
 .clone{
-  background:linear-gradient(145deg,#130607,#090909);
-  border:1px solid #451014;
-  border-radius:22px;
-  padding:35px;
-  text-align:center;
+text-align:center;
+background:linear-gradient(145deg,#150607,#090909);
+border:1px solid #451014;
+border-radius:22px;
+padding:35px;
 }
 
 .upload{
-  margin-top:25px;
-  border:2px dashed #4b171b;
-  padding:45px 20px;
-  border-radius:18px;
-  cursor:pointer;
+display:block;
+margin-top:25px;
+padding:42px 20px;
+border:2px dashed #4a171b;
+border-radius:18px;
+cursor:pointer;
 }
 
 .upload:hover{
-  border-color:var(--red);
-  background:#100506;
+border-color:var(--red);
+background:#100506;
 }
 
-.upload input{
-  display:none;
-}
-
-/* STATS */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.stat{
-  background:#101010;
-  border:1px solid #242424;
-  border-radius:18px;
-  padding:25px;
-  text-align:center;
-}
-
-.stat h3{
-  font-size:30px;
-  color:#ff3944;
-}
-
-.stat p{
-  color:#777;
-  margin-top:5px;
-}
+.upload input{display:none}
 
 /* FOOTER */
 
 footer{
-  border-top:1px solid #222;
-  padding:45px 20px;
-  text-align:center;
-  margin-top:70px;
-  background:#050505;
+border-top:1px solid #222;
+margin-top:60px;
+padding:45px 20px;
+text-align:center;
+background:#050505;
 }
 
 .footerLogo{
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:15px;
+font-size:22px;
+font-weight:800;
+margin-bottom:12px;
 }
 
-.developer{
-  margin-top:15px;
-  color:#aaa;
+.dev{
+margin-top:16px;
+color:#aaa;
 }
 
-.developer strong{
-  color:#ff3340;
-}
+.dev strong{color:#ff3340}
 
-footer small{
-  display:block;
-  color:#555;
-  margin-top:15px;
+small{
+display:block;
+margin-top:14px;
+color:#555;
 }
 
 /* TOAST */
 
 .toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#151515;
-  border:1px solid #3b1014;
-  color:white;
-  padding:15px 20px;
-  border-radius:12px;
-  transform:translateY(120px);
-  opacity:0;
-  transition:.3s;
-  z-index:9999;
+position:fixed;
+right:20px;
+bottom:20px;
+background:#151515;
+border:1px solid #57141a;
+padding:14px 18px;
+border-radius:12px;
+transform:translateY(120px);
+opacity:0;
+transition:.3s;
+z-index:9999;
 }
 
 .toast.show{
-  transform:translateY(0);
-  opacity:1;
+transform:translateY(0);
+opacity:1;
 }
 
 /* MOBILE */
 
 @media(max-width:800px){
 
-  .navLinks{
-    display:none;
-  }
+.navlinks{display:none}
 
-  nav{
-    padding:0 20px;
-  }
+nav{padding:0 18px}
 
-  .hero{
-    padding-top:70px;
-  }
+.hero{padding-top:70px}
 
-  .hero h1{
-    letter-spacing:-2px;
-  }
+.hero h1{letter-spacing:-2px}
 
-  .controls{
-    grid-template-columns:1fr;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .section{
-    padding:60px 18px;
-  }
-
-  .studio{
-    padding:15px;
-  }
+.controls{
+grid-template-columns:1fr;
 }
 
-@media(max-width:450px){
+.features{
+grid-template-columns:1fr;
+}
 
-  .logo{
-    font-size:17px;
-  }
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
 
-  .logoIcon{
-    width:35px;
-    height:35px;
-  }
+.voiceGrid{
+grid-template-columns:1fr;
+}
 
-  .hero h1{
-    font-size:46px;
-  }
+.voiceTop{
+align-items:stretch;
+flex-direction:column;
+}
 
-  .hero p{
-    font-size:15px;
-  }
+.voiceSearch{
+width:100%;
+}
 
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
+.section{
+padding:60px 16px;
+}
+
+.studio{
+padding:15px;
+}
+
+}
+
+@media(max-width:430px){
+
+.logo{
+font-size:16px;
+}
+
+.logoIcon{
+width:35px;
+height:35px;
+}
+
+.hero h1{
+font-size:45px;
+}
+
+.hero p{
+font-size:15px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 
 <nav>
 
-  <div class="logo">
-    <div class="logoIcon">🎙️</div>
-    Bangla Voice AI
-  </div>
+<div class="logo">
+<div class="logoIcon">🎙️</div>
+Bangla Voice AI
+</div>
 
-  <div class="navLinks">
-    <a href="#studio">Studio</a>
-    <a href="#features">Features</a>
-    <a href="#clone">Voice Clone</a>
-  </div>
+<div class="navlinks">
+<a href="#studio">Studio</a>
+<a href="#features">Features</a>
+<a href="#clone">Voice Clone</a>
+</div>
 
-  <button class="freeBtn" onclick="scrollToStudio()">
-    Try Free
-  </button>
+<button class="freeBtn" onclick="goStudio()">
+Try Free
+</button>
 
 </nav>
 
@@ -531,30 +601,33 @@ footer small{
 
 <section class="hero">
 
-  <div class="badge">
-    🔴 100% Free Voice Studio
-  </div>
+<div class="badge">
+🔴 FREE • NO LOGIN REQUIRED
+</div>
 
-  <h1>
-    Turn Text Into
-    <br>
-    <span class="gradientText">Powerful Voice.</span>
-  </h1>
+<h1>
+Your Text.
+<br>
+<span class="gradient">Your Voice.</span>
+</h1>
 
-  <p>
-    Create natural sounding speech directly from your browser.
-    Bangla and English supported with speed and voice controls.
-  </p>
+<p>
+Create speech from Bangla, English and other available
+languages using the voices installed on your device.
+</p>
 
-  <div class="heroButtons">
-    <button class="primary" onclick="scrollToStudio()">
-      🎙️ Start Creating
-    </button>
+<div class="buttons">
 
-    <button class="secondary" onclick="document.getElementById('features').scrollIntoView()">
-      Explore Features
-    </button>
-  </div>
+<button class="primary" onclick="goStudio()">
+🎙️ Open Voice Studio
+</button>
+
+<button class="secondary"
+onclick="document.getElementById('features').scrollIntoView()">
+Explore Features
+</button>
+
+</div>
 
 </section>
 
@@ -563,29 +636,29 @@ footer small{
 
 <section class="section">
 
-  <div class="stats">
+<div class="stats">
 
-    <div class="stat">
-      <h3>∞</h3>
-      <p>Free Generations</p>
-    </div>
+<div class="stat">
+<h3>∞</h3>
+<p>Free Use</p>
+</div>
 
-    <div class="stat">
-      <h3>2+</h3>
-      <p>Languages</p>
-    </div>
+<div class="stat">
+<h3>2+</h3>
+<p>Voice Genders</p>
+</div>
 
-    <div class="stat">
-      <h3>HD</h3>
-      <p>Audio Output</p>
-    </div>
+<div class="stat">
+<h3>🌍</h3>
+<p>Many Languages</p>
+</div>
 
-    <div class="stat">
-      <h3>24/7</h3>
-      <p>Available</p>
-    </div>
+<div class="stat">
+<h3>24/7</h3>
+<p>Browser Access</p>
+</div>
 
-  </div>
+</div>
 
 </section>
 
@@ -594,96 +667,118 @@ footer small{
 
 <section class="section" id="studio">
 
-  <div class="sectionTitle">
+<div class="title">
 
-    <h2>Voice Studio</h2>
+<h2>🎙️ Voice Studio</h2>
 
-    <p>
-      Write your text and generate speech instantly.
-    </p>
+<p>
+Choose a voice and turn your text into speech.
+</p>
 
-  </div>
+</div>
 
-  <div class="studio">
+<div class="studio">
 
-    <textarea
-      id="text"
-      class="textArea"
-      placeholder="Write something in Bangla or English..."
-    >আসসালামু আলাইকুম! এটি Bangla Voice AI-এর একটি ডেমো।</textarea>
+<textarea id="text">আসসালামু আলাইকুম! Bangla Voice AI-তে আপনাকে স্বাগতম। আপনি এখানে বাংলা ও ইংরেজি লেখা থেকে ভয়েস তৈরি করতে পারবেন।</textarea>
 
 
-    <div class="controls">
+<!-- VOICE SELECTOR -->
 
-      <div class="control">
+<div class="voicePanel">
 
-        <label>VOICE</label>
+<div class="voiceTop">
 
-        <select id="voiceSelect">
-          <option value="">Loading voices...</option>
-        </select>
+<h3>🎧 Available Voices</h3>
 
-      </div>
+<input
+class="voiceSearch"
+id="voiceSearch"
+placeholder="Search voice..."
+oninput="filterVoices()">
 
+</div>
 
-      <div class="control">
+<div id="voiceGrid" class="voiceGrid"></div>
 
-        <label>
-          SPEED:
-          <span id="speedValue">1.0x</span>
-        </label>
-
-        <input
-          id="speed"
-          type="range"
-          min="0.5"
-          max="2"
-          step="0.1"
-          value="1"
-          oninput="updateSpeed()"
-        >
-
-      </div>
+</div>
 
 
-      <div class="control">
+<!-- CONTROLS -->
 
-        <label>
-          PITCH:
-          <span id="pitchValue">1.0</span>
-        </label>
+<div class="controls">
 
-        <input
-          id="pitch"
-          type="range"
-          min="0"
-          max="2"
-          step="0.1"
-          value="1"
-          oninput="updatePitch()"
-        >
+<div class="control">
 
-      </div>
+<label>
+SPEECH SPEED:
+<span id="speedValue">1.0x</span>
+</label>
 
-    </div>
+<input
+id="speed"
+type="range"
+min=".5"
+max="2"
+step=".1"
+value="1"
+oninput="updateSpeed()">
 
-
-    <button class="generate" onclick="generateVoice()">
-      🔊 Generate Voice
-    </button>
+</div>
 
 
-    <div class="player" id="player">
+<div class="control">
 
-      <p style="margin-bottom:12px;color:#aaa;">
-        Generated Voice
-      </p>
+<label>
+PITCH:
+<span id="pitchValue">1.0</span>
+</label>
 
-      <audio id="audioPlayer" controls></audio>
+<input
+id="pitch"
+type="range"
+min="0"
+max="2"
+step=".1"
+value="1"
+oninput="updatePitch()">
 
-    </div>
+</div>
 
-  </div>
+
+<div class="control">
+
+<label>LANGUAGE</label>
+
+<select id="languageFilter"
+onchange="filterByLanguage()">
+
+<option value="all">
+All Languages
+</option>
+
+<option value="bn">
+🇧🇩 Bangla
+</option>
+
+<option value="en">
+🇺🇸 English
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button class="generate" onclick="generateVoice()">
+🔊 Generate Voice
+</button>
+
+
+<div class="status" id="status"></div>
+
+</div>
 
 </section>
 
@@ -692,97 +787,68 @@ footer small{
 
 <section class="section" id="features">
 
-  <div class="sectionTitle">
+<div class="title">
 
-    <h2>Built For Creators</h2>
+<h2>Powerful Features</h2>
 
-    <p>
-      Everything you need for quick voice creation.
-    </p>
+<p>
+A clean voice studio designed for creators.
+</p>
 
-  </div>
-
-
-  <div class="features">
-
-    <div class="feature">
-
-      <div class="icon">🎙️</div>
-
-      <h3>AI Voice Studio</h3>
-
-      <p>
-        Convert your text into natural speech directly from your browser.
-      </p>
-
-    </div>
+</div>
 
 
-    <div class="feature">
+<div class="features">
 
-      <div class="icon">🇧🇩</div>
+<div class="feature">
+<div class="icon">🇧🇩</div>
+<h3>Bangla Voice</h3>
+<p>
+Bangla voices are automatically detected from your device.
+</p>
+</div>
 
-      <h3>Bangla Friendly</h3>
+<div class="feature">
+<div class="icon">👨</div>
+<h3>Male Voices</h3>
+<p>
+Available male voices are shown when your browser/device provides gender metadata or suitable voice names.
+</p>
+</div>
 
-      <p>
-        Supports Bangla text and English text using available device voices.
-      </p>
+<div class="feature">
+<div class="icon">👩</div>
+<h3>Female Voices</h3>
+<p>
+Available female voices are shown automatically from supported device voices.
+</p>
+</div>
 
-    </div>
+<div class="feature">
+<div class="icon">🌍</div>
+<h3>Multi Language</h3>
+<p>
+Use English and other languages available through your browser speech engine.
+</p>
+</div>
 
+<div class="feature">
+<div class="icon">🎚️</div>
+<h3>Speed & Pitch</h3>
+<p>
+Control speaking speed and pitch for different types of content.
+</p>
+</div>
 
-    <div class="feature">
+<div class="feature">
+<div class="icon">📱</div>
+<h3>Mobile Ready</h3>
+<p>
+Responsive interface designed for Android, iPhone, tablet and desktop.
+</p>
+</div>
 
-      <div class="icon">⚡</div>
-
-      <h3>Instant Generation</h3>
-
-      <p>
-        No complicated setup. Write text and generate speech with one click.
-      </p>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">🎚️</div>
-
-      <h3>Voice Controls</h3>
-
-      <p>
-        Adjust speech speed and pitch according to your project.
-      </p>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">📱</div>
-
-      <h3>Mobile Friendly</h3>
-
-      <p>
-        Designed to work smoothly on Android, iPhone, tablet and desktop.
-      </p>
-
-    </div>
-
-
-    <div class="feature">
-
-      <div class="icon">🆓</div>
-
-      <h3>Completely Free</h3>
-
-      <p>
-        No login and no account required for the browser demo.
-      </p>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
@@ -791,55 +857,56 @@ footer small{
 
 <section class="section" id="clone">
 
-  <div class="sectionTitle">
+<div class="title">
 
-    <h2>Voice Clone</h2>
+<h2>🎤 Voice Clone</h2>
 
-    <p>
-      Prepare your voice workflow for future AI voice cloning.
-    </p>
+<p>
+Voice cloning backend can be connected to this interface later.
+</p>
 
-  </div>
+</div>
 
+<div class="clone">
 
-  <div class="clone">
+<div style="font-size:55px">
+🎤
+</div>
 
-    <div style="font-size:55px;margin-bottom:15px;">
-      🎤
-    </div>
+<h2 style="margin-top:12px">
+Upload Voice Sample
+</h2>
 
-    <h2>Upload Voice Sample</h2>
+<p style="color:#888;margin-top:10px">
+Select an audio file to prepare the voice-cloning workflow.
+</p>
 
-    <p style="color:#888;margin-top:10px;">
-      Voice cloning backend can be connected here later.
-    </p>
+<label class="upload">
 
-    <label class="upload">
+<input
+type="file"
+accept="audio/*"
+onchange="uploadVoice(event)">
 
-      <input
-        type="file"
-        accept="audio/*"
-        onchange="voiceUploaded(event)"
-      >
+<div style="font-size:35px">
+📁
+</div>
 
-      <div style="font-size:35px;">📁</div>
+<p style="margin-top:10px">
+Tap to select audio
+</p>
 
-      <p style="margin-top:10px;">
-        Tap to select an audio file
-      </p>
+<small>
+MP3 • WAV • M4A
+</small>
 
-      <small style="color:#666;">
-        MP3 / WAV / M4A
-      </small>
+</label>
 
-    </label>
+<p id="uploadStatus"
+style="color:#ff3340;margin-top:18px">
+</p>
 
-    <p
-      id="uploadStatus"
-      style="color:#ff3340;margin-top:18px;"
-    ></p>
-
-  </div>
+</div>
 
 </section>
 
@@ -848,22 +915,22 @@ footer small{
 
 <footer>
 
-  <div class="footerLogo">
-    🎙️ Bangla Voice AI
-  </div>
+<div class="footerLogo">
+🎙️ Bangla Voice AI
+</div>
 
-  <p style="color:#777;">
-    Free AI-inspired voice creation platform.
-  </p>
+<p style="color:#777">
+Free voice creation platform.
+</p>
 
-  <div class="developer">
-    Developed by
-    <strong>MD RAFIM HOSSEN</strong>
-  </div>
+<div class="dev">
+Developed by
+<strong>MD RAFIM HOSSEN</strong>
+</div>
 
-  <small>
-    © 2026 Bangla Voice AI. All rights reserved.
-  </small>
+<small>
+© 2026 Bangla Voice AI — All rights reserved.
+</small>
 
 </footer>
 
@@ -873,265 +940,526 @@ footer small{
 
 <script>
 
-/* ================================
-   VOICE ENGINE
-================================ */
+/* ======================================
+   GLOBAL VOICE DATA
+====================================== */
 
-const voiceSelect =
-  document.getElementById("voiceSelect");
+let voices=[];
+let selectedVoice=null;
 
-const textBox =
-  document.getElementById("text");
 
-let voices = [];
-
+/* ======================================
+   LOAD ALL BROWSER VOICES
+====================================== */
 
 function loadVoices(){
 
-  voices =
-    window.speechSynthesis.getVoices();
+voices=window.speechSynthesis.getVoices();
 
-  voiceSelect.innerHTML = "";
+if(!voices.length){
 
-  if(!voices.length){
-
-    const option =
-      document.createElement("option");
-
-    option.textContent =
-      "Default device voice";
-
-    option.value = "";
-
-    voiceSelect.appendChild(option);
-
-    return;
-  }
-
-
-  voices.forEach((voice,index)=>{
-
-    const option =
-      document.createElement("option");
-
-    option.value = index;
-
-    option.textContent =
-      voice.name +
-      " — " +
-      voice.lang;
-
-    voiceSelect.appendChild(option);
-
-  });
+setTimeout(loadVoices,500);
+return;
 
 }
 
+renderVoices();
+
+}
+
+
+/* ======================================
+   VOICE NAME / GENDER DETECTION
+====================================== */
+
+function detectGender(voice){
+
+const name=
+(
+voice.name+
+" "+
+voice.voiceURI
+).toLowerCase();
+
+const femaleWords=[
+"female",
+"woman",
+"girl",
+"zira",
+"samantha",
+"victoria",
+"karen",
+"moira",
+"ava",
+"aria",
+"jenny",
+"libby",
+"hazel",
+"google uk english female",
+"google us english female"
+];
+
+const maleWords=[
+"male",
+"man",
+"boy",
+"david",
+"mark",
+"daniel",
+"george",
+"guy",
+"alex",
+"fred",
+"james",
+"google uk english male",
+"google us english male"
+];
+
+if(femaleWords.some(x=>name.includes(x)))
+return "Female";
+
+if(maleWords.some(x=>name.includes(x)))
+return "Male";
+
+return "Voice";
+
+}
+
+
+/* ======================================
+   LANGUAGE
+====================================== */
+
+function getLanguage(voice){
+
+return voice.lang || "";
+
+}
+
+
+/* ======================================
+   RENDER VOICES
+====================================== */
+
+function renderVoices(){
+
+const grid=
+document.getElementById("voiceGrid");
+
+grid.innerHTML="";
+
+const search=
+document.getElementById("voiceSearch")
+.value.toLowerCase();
+
+const language=
+document.getElementById("languageFilter")
+.value;
+
+
+const filtered=
+voices.filter(v=>{
+
+const name=
+(v.name+" "+v.lang).toLowerCase();
+
+const matchSearch=
+name.includes(search);
+
+const lang=
+v.lang.toLowerCase();
+
+let matchLanguage=true;
+
+if(language==="bn")
+matchLanguage=lang.startsWith("bn");
+
+if(language==="en")
+matchLanguage=lang.startsWith("en");
+
+return matchSearch && matchLanguage;
+
+});
+
+
+if(!filtered.length){
+
+grid.innerHTML=
+`
+<div style="
+grid-column:1/-1;
+padding:25px;
+text-align:center;
+color:#777;
+">
+No matching voice found on this device.
+</div>
+`;
+
+return;
+
+}
+
+
+filtered.forEach((voice)=>{
+
+const gender=
+detectGender(voice);
+
+const isBangla=
+voice.lang.toLowerCase().startsWith("bn");
+
+let icon="🎙️";
+
+if(gender==="Male")
+icon="👨";
+
+if(gender==="Female")
+icon="👩";
+
+if(isBangla)
+icon="🇧🇩";
+
+
+const div=
+document.createElement("div");
+
+div.className="voice";
+
+if(
+selectedVoice &&
+selectedVoice.voiceURI===voice.voiceURI
+){
+div.classList.add("active");
+}
+
+
+div.innerHTML=
+`
+<div class="voiceAvatar">${icon}</div>
+
+<div class="voiceInfo">
+
+<div class="voiceName">
+${escapeHTML(voice.name)}
+</div>
+
+<div class="voiceLang">
+${escapeHTML(voice.lang)}
+ • ${gender}
+</div>
+
+</div>
+`;
+
+
+div.onclick=()=>{
+
+selectedVoice=voice;
+
+renderVoices();
+
+showToast(
+"Selected: "+voice.name
+);
+
+};
+
+
+grid.appendChild(div);
+
+});
+
+}
+
+
+/* ======================================
+   SEARCH
+====================================== */
+
+function filterVoices(){
+
+renderVoices();
+
+}
+
+
+/* ======================================
+   LANGUAGE FILTER
+====================================== */
+
+function filterByLanguage(){
+
+renderVoices();
+
+}
+
+
+/* ======================================
+   SPEED
+====================================== */
+
+function updateSpeed(){
+
+const value=
+document.getElementById("speed").value;
+
+document.getElementById("speedValue")
+.textContent=value+"x";
+
+}
+
+
+/* ======================================
+   PITCH
+====================================== */
+
+function updatePitch(){
+
+const value=
+document.getElementById("pitch").value;
+
+document.getElementById("pitchValue")
+.textContent=value;
+
+}
+
+
+/* ======================================
+   GENERATE SPEECH
+====================================== */
+
+function generateVoice(){
+
+const text=
+document.getElementById("text")
+.value.trim();
+
+if(!text){
+
+showToast(
+"⚠️ Please write some text first."
+);
+
+return;
+
+}
+
+
+if(
+!("speechSynthesis" in window)
+){
+
+showToast(
+"❌ Speech synthesis is not supported."
+);
+
+return;
+
+}
+
+
+window.speechSynthesis.cancel();
+
+
+const utterance=
+new SpeechSynthesisUtterance(text);
+
+
+if(selectedVoice){
+
+utterance.voice=
+selectedVoice;
+
+utterance.lang=
+selectedVoice.lang;
+
+}else{
+
+/*
+If no voice is manually selected,
+try Bangla first when the text
+contains Bangla characters.
+*/
+
+const hasBangla=
+/[\u0980-\u09FF]/.test(text);
+
+if(hasBangla){
+
+const banglaVoice=
+voices.find(v=>
+v.lang.toLowerCase().startsWith("bn")
+);
+
+if(banglaVoice){
+
+utterance.voice=
+banglaVoice;
+
+utterance.lang=
+banglaVoice.lang;
+
+}
+
+}
+
+}
+
+
+utterance.rate=
+Number(
+document.getElementById("speed").value
+);
+
+
+utterance.pitch=
+Number(
+document.getElementById("pitch").value
+);
+
+
+utterance.volume=1;
+
+
+const status=
+document.getElementById("status");
+
+status.style.display="block";
+
+status.textContent=
+"🔊 Generating speech...";
+
+
+utterance.onstart=()=>{
+
+status.textContent=
+"🔴 Speaking...";
+
+};
+
+
+utterance.onend=()=>{
+
+status.textContent=
+"✅ Voice generation completed.";
+
+showToast(
+"Voice generation completed."
+);
+
+};
+
+
+utterance.onerror=()=>{
+
+status.textContent=
+"❌ Voice generation failed.";
+
+showToast(
+"Voice generation failed."
+);
+
+};
+
+
+window.speechSynthesis.speak(
+utterance
+);
+
+}
+
+
+/* ======================================
+   SCROLL
+====================================== */
+
+function goStudio(){
+
+document.getElementById("studio")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* ======================================
+   UPLOAD
+====================================== */
+
+function uploadVoice(event){
+
+const file=
+event.target.files[0];
+
+if(!file)return;
+
+document.getElementById(
+"uploadStatus"
+).textContent=
+"✓ Selected: "+file.name;
+
+showToast(
+"Voice sample selected."
+);
+
+}
+
+
+/* ======================================
+   TOAST
+====================================== */
+
+function showToast(message){
+
+const toast=
+document.getElementById("toast");
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},3000);
+
+}
+
+
+/* ======================================
+   HTML ESCAPE
+====================================== */
+
+function escapeHTML(value){
+
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+/* ======================================
+   INITIALIZE
+====================================== */
 
 loadVoices();
 
 if(
-  "speechSynthesis" in window
+"speechSynthesis" in window
 ){
-  window.speechSynthesis.onvoiceschanged =
-    loadVoices;
-}
 
-
-/* ================================
-   SPEED
-================================ */
-
-function updateSpeed(){
-
-  const value =
-    document.getElementById("speed").value;
-
-  document.getElementById("speedValue")
-    .textContent =
-    value + "x";
-}
-
-
-/* ================================
-   PITCH
-================================ */
-
-function updatePitch(){
-
-  const value =
-    document.getElementById("pitch").value;
-
-  document.getElementById("pitchValue")
-    .textContent =
-    value;
-}
-
-
-/* ================================
-   GENERATE
-================================ */
-
-function generateVoice(){
-
-  const text =
-    textBox.value.trim();
-
-  if(!text){
-
-    showToast(
-      "Please write some text first."
-    );
-
-    return;
-  }
-
-
-  if(
-    !("speechSynthesis" in window)
-  ){
-
-    showToast(
-      "Your browser does not support voice generation."
-    );
-
-    return;
-  }
-
-
-  window.speechSynthesis.cancel();
-
-
-  const utterance =
-    new SpeechSynthesisUtterance(text);
-
-
-  const selected =
-    voiceSelect.value;
-
-
-  if(
-    selected !== "" &&
-    voices[selected]
-  ){
-
-    utterance.voice =
-      voices[selected];
-
-  }
-
-
-  utterance.rate =
-    Number(
-      document.getElementById("speed").value
-    );
-
-
-  utterance.pitch =
-    Number(
-      document.getElementById("pitch").value
-    );
-
-
-  utterance.volume = 1;
-
-
-  utterance.onstart = function(){
-
-    showToast(
-      "🔊 Voice generation started"
-    );
-
-  };
-
-
-  utterance.onend = function(){
-
-    showToast(
-      "✅ Voice generation completed"
-    );
-
-  };
-
-
-  utterance.onerror = function(){
-
-    showToast(
-      "Voice generation failed."
-    );
-
-  };
-
-
-  window.speechSynthesis.speak(
-    utterance
-  );
-
-
-  document.getElementById("player")
-    .style.display =
-    "block";
-}
-
-
-/* ================================
-   UPLOAD
-================================ */
-
-function voiceUploaded(event){
-
-  const file =
-    event.target.files[0];
-
-  if(!file) return;
-
-
-  document.getElementById(
-    "uploadStatus"
-  ).textContent =
-    "✓ Selected: " + file.name;
-
-
-  showToast(
-    "Voice sample selected successfully."
-  );
-}
-
-
-/* ================================
-   SCROLL
-================================ */
-
-function scrollToStudio(){
-
-  document.getElementById("studio")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-/* ================================
-   TOAST
-================================ */
-
-function showToast(message){
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent =
-    message;
-
-  toast.classList.add("show");
-
-
-  setTimeout(()=>{
-
-    toast.classList.remove("show");
-
-  },3000);
+window.speechSynthesis
+.addEventListener(
+"voiceschanged",
+loadVoices
+);
 
 }
 
